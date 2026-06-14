@@ -59,7 +59,7 @@ add_action('plugins_loaded', static function (): void {
     }
 
     // Boot on init:0 — never at plugins_loaded scope — so translations are safe
-    // and Plugin::boot() fires sizer/booted for PRO companions.
+    // and Plugin::boot() fires the sizer/booted action.
     add_action('init', static function (): void {
         Plugin::instance()->boot();
     }, 0);

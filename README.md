@@ -1,52 +1,30 @@
-# plugin-template
+# Sizer
 
-GitHub **template repo** for a WPPoland storefront FREE plugin. A thin adapter over
-`wppoland/storefront-kit`, pre-wired to the reusable CI/release workflows. Spin up a new plugin in
-minutes instead of rebuilding CI each time.
+Sizer lets you build reusable size charts and show them on your WooCommerce products — either in an accessible pop-up modal or as a product tab — to cut down on sizing questions and returns.
 
-## Create a new plugin
+## Features
 
-> 🔔 **You must create a new repository for each plugin.** FREE → a **public** repo
-> `wppoland/<slug>`. PRO → a separate **private** repo `wppoland/<slug>-pro`.
+- Reusable size charts: build a labelled table once and reuse it everywhere.
+- Assign a chart per product, or set a default chart per product category.
+- Accessible native `<dialog>` modal — keyboard operable, focus-managed and screen-reader friendly.
+- Or display the chart inline as a product tab instead of a modal.
+- Choose the trigger style (button or text link) and where it appears on the product page.
+- Themeable, responsive output with no layout shift; respects reduced-motion and dark mode.
 
-1. **"Use this template" → create `wppoland/<slug>`** (public).
-2. **Run the scaffold script** — replaces all tokens and renames `sizer.php → <slug>.php`
-   (cross-platform; review the diff before committing):
-   ```bash
-   python3 scripts/init.py restock Restock "Restock" "Back-in-stock notifications for WooCommerce"
-   #                        ^slug   ^Namespace ^Name    ^short description
-   rm scripts/init.py
-   ```
-   Tokens it replaces (case-sensitive):
+## Installation
 
-   | Token | Replace with | Example |
-   |---|---|---|
-   | `sizer` | lowercase slug = text-domain = i18n domain | `restock` |
-   | `Sizer` | PSR-4 PHP namespace | `Restock` |
-   | `SIZER` (in `define()`) | uppercased namespace | `RESTOCK` |
-   | `sizer_` | option/meta prefix (slug, dashes→underscores) | `restock_` |
-   | `Sizer - Size Guide and Charts for WooCommerce` / `Add size guides and size charts to products via an accessible modal or tab.` / `Add size guides and size charts to products via an accessible modal or tab.` | name + descriptions | … |
-3. `composer install` — resolves `wppoland/storefront-kit ^1.0` from VCS (no symlink). Implement
-   your adapter in `src/`, wire it in `config/services.php` + `config/hooks.php`.
-   *(For local atomic kit+adapter dev, see the kit README's path-override note.)*
-4. Add repo secrets: **`WPORG_SVN_USERNAME`**, **`WPORG_SVN_PASSWORD`**.
-5. Drop wp.org assets in `.wordpress-org/`; fill in `readme.txt`.
-6. Add a `PluginEntry` to `plogins` `packages/registry/src/plugins.config.ts` + a docs folder.
-7. **Release:** bump the header `Version:` + `readme.txt` Stable tag, tag `vX.Y.Z`, push →
-   `_release-free.yml` runs CI, vendors the kit, and auto-deploys to wp.org SVN.
+1. Upload the plugin to `/wp-content/plugins/sizer`, or install it from Plugins → Add New.
+2. Activate it. WooCommerce must be active.
+3. Go to WooCommerce → Size Guides to create a chart, then assign it on a product (Product data → Size guide) or on a product category.
 
-## What's wired
+## Frequently Asked Questions
 
-- **Bootstrap** (`sizer.php`): PHP/WC guards, HPOS + cart-blocks compat, `init` priority 0
-  boot, `do_action('sizer/booted')` fired from `Plugin::boot()` (the hook a PRO companion extends).
-- **Autoload** (`autoload.php`): Composer vendor autoloader + PSR-4 fallback (incl. the kit).
-- **DI**: `src/Plugin.php` singleton + `src/Container.php`; services in `config/services.php`,
-  boot order in `config/hooks.php`, defaults in `config/defaults.php`; `src/Migrator.php`.
-- **CI/Release**: `.github/workflows/{ci,release}.yml` call `wppoland/workflows@v1`.
-- **Quality**: `phpcs.xml.dist` (WPCS), `phpstan.neon.dist` (level 6 + WC stubs), `.distignore`
-  (ships `vendor/` so the kit travels), `.wp-env.json`.
+**Does it require WooCommerce?**
+Yes. Sizer extends WooCommerce single product pages.
 
-## PRO companion (`<slug>-pro`, private)
+**Can I use one chart for a whole category?**
+Yes. Assign a chart to a product category and every product in it inherits the chart, unless the product has its own assignment.
 
-Create a separate private repo. It hooks `add_action('<slug>/booted', …)`, bundles the Freemius
-SDK, and releases via `wppoland/workflows/.github/workflows/_release-pro.yml@v1`.
+Built by WPPoland — https://plogins.com
+
+License: GPL-2.0-or-later
