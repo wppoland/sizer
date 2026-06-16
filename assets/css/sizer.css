@@ -1,11 +1,23 @@
 /* ==========================================================================
    Sizer – storefront styles for the size-guide trigger, dialog and tables.
+
+   Grounded in the tailor's world: a fibreglass measuring tape. The accent is
+   tape-amber (not a default blue), the chart frame carries a tape edge, and the
+   one moment that matters — a shopper finding *their* row — is marked the way a
+   tailor lays a tape across a measurement: an amber rule slides in along the
+   active size row.
+
    Themeable via custom properties, accessible, no layout shift.
    ========================================================================== */
 
 .sizer-trigger {
-	--sizer-accent: #2563eb;
-	--sizer-accent-contrast: #ffffff;
+	/* Tailor's-tape amber — the colour of a fibreglass measuring tape.
+	   Deepened to clear WCAG AA: as link text on white and behind the
+	   near-white button label it now reads >=4.5:1 (was ~3.4:1). */
+	--sizer-accent: #9c5e0d;
+	--sizer-accent-ink: #5a370b;
+	--sizer-accent-contrast: #fffaf2;
+	--sizer-tape: #e7a83c;
 	--sizer-radius: 8px;
 
 	display: inline-flex;
@@ -51,6 +63,8 @@
 /* --------------------------------------------------------------- Dialog. */
 
 .sizer-dialog {
+	--sizer-accent: #9c5e0d;
+	--sizer-tape: #e7a83c;
 	--sizer-dialog-bg: #ffffff;
 	--sizer-dialog-fg: #1a1a1a;
 	--sizer-border: rgba(0, 0, 0, 0.12);
@@ -138,7 +152,7 @@
 }
 
 .sizer-dialog__close:focus-visible {
-	outline: 2px solid var(--sizer-accent, #2563eb);
+	outline: 2px solid var(--sizer-accent, #9c5e0d);
 	outline-offset: 1px;
 }
 
@@ -156,7 +170,8 @@
 
 .sizer-chart__table {
 	width: 100%;
-	border-collapse: collapse;
+	border-collapse: separate;
+	border-spacing: 0;
 	font-size: 0.95em;
 }
 
@@ -168,8 +183,18 @@
 .sizer-chart__table td {
 	padding: 0.55em 0.8em;
 	text-align: start;
-	border: 1px solid var(--sizer-border, rgba(0, 0, 0, 0.12));
+	border-bottom: 1px solid var(--sizer-border, rgba(0, 0, 0, 0.12));
+	border-right: 1px solid var(--sizer-border, rgba(0, 0, 0, 0.12));
 	min-height: 1.5em;
+}
+
+.sizer-chart__table th:first-child,
+.sizer-chart__table td:first-child {
+	border-left: 1px solid var(--sizer-border, rgba(0, 0, 0, 0.12));
+}
+
+.sizer-chart__table thead th {
+	border-top: 1px solid var(--sizer-border, rgba(0, 0, 0, 0.12));
 }
 
 .sizer-chart__table thead th {
@@ -177,19 +202,123 @@
 	font-weight: 600;
 }
 
+/* Round the outer frame so the table reads as one printed chart. */
+.sizer-chart__table thead th:first-child {
+	border-top-left-radius: 10px;
+}
+.sizer-chart__table thead th:last-child {
+	border-top-right-radius: 10px;
+}
+.sizer-chart__table tbody tr:last-child th:first-child {
+	border-bottom-left-radius: 10px;
+}
+.sizer-chart__table tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+/* The first column is the size label — a printed tape edge runs down it. */
 .sizer-chart__table tbody th {
+	position: relative;
 	background: rgba(0, 0, 0, 0.02);
 	font-weight: 600;
+	padding-left: 1.55em;
 }
 
 .sizer-chart__table tbody tr:nth-child(even) td {
 	background: rgba(0, 0, 0, 0.015);
 }
 
+/* ----------------------------------------------------- The tape measure.
+
+   THE MOMENT: a shopper hovering or keyboard-focusing a size row sees a
+   tailor's tape laid across exactly that size — an amber band ticked like a
+   measuring tape slides in along the row's leading (size-label) edge.
+   ------------------------------------------------------------------------- */
+
+.sizer-chart__table tbody th::before {
+	content: "";
+	position: absolute;
+	inset: 3px auto 3px 3px;
+	width: 13px;
+	border-radius: 3px;
+	/* Fibreglass measuring tape: an amber band ruled with graduation ticks
+	   that run across it — long marks every other step, like real tape. */
+	background:
+		repeating-linear-gradient(
+			to bottom,
+			var(--sizer-accent-ink, #5a370b) 0,
+			var(--sizer-accent-ink, #5a370b) 1.5px,
+			transparent 1.5px,
+			transparent 6px
+		),
+		var(--sizer-tape, #e7a83c);
+	box-shadow: inset -1px 0 0 rgba(90, 55, 11, 0.35);
+	transform: scaleX(0);
+	transform-origin: left center;
+	opacity: 0;
+}
+
+/* Short alternating graduations, offset, to read unmistakably as a tape. */
+.sizer-chart__table tbody th::after {
+	content: "";
+	position: absolute;
+	inset: 3px auto 3px 3px;
+	width: 6px;
+	border-radius: 3px 0 0 3px;
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent 0,
+		transparent 6px,
+		var(--sizer-accent-ink, #5a370b) 6px,
+		var(--sizer-accent-ink, #5a370b) 7.5px,
+		transparent 7.5px,
+		transparent 12px
+	);
+	transform: scaleX(0);
+	transform-origin: left center;
+	opacity: 0;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.sizer-chart__table tbody th::before,
+	.sizer-chart__table tbody th::after {
+		transition: transform 0.16s ease-out, opacity 0.16s ease-out;
+	}
+}
+
+.sizer-chart__table tbody tr:hover th::before,
+.sizer-chart__table tbody tr:focus-within th::before,
+.sizer-chart__table tbody tr:hover th::after,
+.sizer-chart__table tbody tr:focus-within th::after {
+	transform: scaleX(1);
+	opacity: 1;
+}
+
+/* Lift the whole active row so the size you landed on is unmistakable. */
+.sizer-chart__table tbody tr:hover th,
+.sizer-chart__table tbody tr:hover td,
+.sizer-chart__table tbody tr:focus-within th,
+.sizer-chart__table tbody tr:focus-within td {
+	background: color-mix(in srgb, var(--sizer-tape, #e7a83c) 16%, transparent);
+}
+
+.sizer-chart__table tbody tr:hover th,
+.sizer-chart__table tbody tr:focus-within th {
+	color: var(--sizer-accent-ink, #5a370b);
+}
+
+/* Make rows reachable so the tape responds to keyboard, not just hover. */
+.sizer-chart__table tbody tr {
+	outline: none;
+}
+
 .sizer-chart__caption {
-	margin: 0.75em 0 0;
+	margin: 0.85em 0 0;
+	padding-left: 0.65em;
+	border-left: 3px solid var(--sizer-tape, #e7a83c);
 	font-size: 0.85em;
-	opacity: 0.75;
+	opacity: 0.8;
 }
 
 .sizer-chart__empty {
@@ -204,6 +333,7 @@
 		--sizer-dialog-fg: #e8eaed;
 		--sizer-border: rgba(255, 255, 255, 0.16);
 		--sizer-head-bg: rgba(255, 255, 255, 0.05);
+		--sizer-accent: #e7a83c;
 	}
 
 	.sizer-chart__table tbody th {
@@ -212,5 +342,10 @@
 
 	.sizer-chart__table tbody tr:nth-child(even) td {
 		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.sizer-chart__table tbody tr:hover th,
+	.sizer-chart__table tbody tr:focus-within th {
+		color: #fff4e3;
 	}
 }
