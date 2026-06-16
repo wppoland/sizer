@@ -11,8 +11,10 @@
    ========================================================================== */
 
 .sizer-trigger {
-	/* Tailor's-tape amber — the colour of a fibreglass measuring tape. */
-	--sizer-accent: #c4791a;
+	/* Tailor's-tape amber — the colour of a fibreglass measuring tape.
+	   Deepened to clear WCAG AA: as link text on white and behind the
+	   near-white button label it now reads >=4.5:1 (was ~3.4:1). */
+	--sizer-accent: #9c5e0d;
 	--sizer-accent-ink: #5a370b;
 	--sizer-accent-contrast: #fffaf2;
 	--sizer-tape: #e7a83c;
@@ -61,7 +63,7 @@
 /* --------------------------------------------------------------- Dialog. */
 
 .sizer-dialog {
-	--sizer-accent: #c4791a;
+	--sizer-accent: #9c5e0d;
 	--sizer-tape: #e7a83c;
 	--sizer-dialog-bg: #ffffff;
 	--sizer-dialog-fg: #1a1a1a;
@@ -150,7 +152,7 @@
 }
 
 .sizer-dialog__close:focus-visible {
-	outline: 2px solid var(--sizer-accent, #c4791a);
+	outline: 2px solid var(--sizer-accent, #9c5e0d);
 	outline-offset: 1px;
 }
 
