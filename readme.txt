@@ -13,19 +13,20 @@ Add size guides and size charts to your WooCommerce products via an accessible m
 
 == Description ==
 
-Sizer lets you build reusable size charts and show them on your WooCommerce products in an accessible pop-up modal. Fewer sizing questions, fewer returns.
+Sizer adds a "Size guide" button to your WooCommerce product pages. Shoppers click it and a size chart opens in a modal, so they can check measurements without leaving the product.
 
-Create a chart once (a simple labelled table of rows and columns), then assign it to a product. A "Size guide" button appears automatically after the add-to-cart button and opens the chart in a modal.
+You build each chart once in the admin (a labelled table of columns and rows, plus an optional caption) and assign it to whichever products it applies to. The button is injected right after the add-to-cart button. If a product has no chart assigned, nothing is added to the page.
 
-**Features**
+Source and bug reports live on GitHub: https://github.com/wppoland/sizer
 
-* Reusable size charts — build a labelled table once and reuse it across products.
-* Assign a chart per product from the Product data → Size guide panel.
-* Accessible native `<dialog>` modal — keyboard operable, focus-managed, screen-reader friendly.
-* Set the button label and the modal title.
-* Themeable, responsive output with no layout shift; respects reduced-motion and dark mode.
-* Graceful by design — nothing renders when a product has no chart assigned.
-* Fully self-contained: no external services, no tracking.
+**What it does**
+
+* Build size charts as labelled tables and reuse the same chart across many products.
+* Pick a chart per product from the Product data → Size guide tab.
+* Opens in a native `<dialog>` element with a labelled heading, a close button, and keyboard support.
+* Set the button text and the modal heading from one settings screen.
+* Stylesheet uses CSS custom properties (accent colour, radius, dialog colours) and includes a dark-scheme and reduced-motion variant.
+* No external requests and no tracking; charts are stored in your own database.
 
 == Installation ==
 
