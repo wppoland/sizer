@@ -99,18 +99,18 @@ final class SettingsPage implements HasHooks
 
         add_settings_section(
             self::SECTION,
-            __('Display', 'sizer'),
+            __('How the size guide appears', 'sizer'),
             static function (): void {
-                echo '<p>' . esc_html__(
-                    'The size guide shows as a button after the add-to-cart button and opens an accessible modal. Assign a chart to a product for it to appear.',
+                echo '<p class="sizer-section-lead">' . esc_html__(
+                    'On any product with a chart assigned, shoppers see a “Size guide” link just below the add-to-cart button. Selecting it opens an accessible pop-up that shows the chart. These two settings control the wording shoppers see — leave them as they are and the guide works out of the box.',
                     'sizer',
                 ) . '</p>';
             },
             self::PAGE,
         );
 
-        add_settings_field('trigger_label', __('Trigger label', 'sizer'), [$this, 'fieldTriggerLabel'], self::PAGE, self::SECTION);
-        add_settings_field('modal_title', __('Modal title', 'sizer'), [$this, 'fieldModalTitle'], self::PAGE, self::SECTION);
+        add_settings_field('trigger_label', __('Link wording', 'sizer'), [$this, 'fieldTriggerLabel'], self::PAGE, self::SECTION);
+        add_settings_field('modal_title', __('Pop-up heading', 'sizer'), [$this, 'fieldModalTitle'], self::PAGE, self::SECTION);
     }
 
     public function fieldTriggerLabel(): void
@@ -121,7 +121,11 @@ final class SettingsPage implements HasHooks
             esc_attr($this->settings->triggerLabel()),
             esc_attr__('Size guide', 'sizer'),
         );
-        echo '<p class="description">' . esc_html__('The text shown on the button.', 'sizer') . '</p>';
+        echo '<p class="description">' . esc_html__(
+            'The clickable text shown on the product page that opens the chart. Keep it short — “Size guide”, “Size chart” or “Find my fit” all read well next to the price.',
+            'sizer',
+        ) . '</p>';
+        $this->renderTriggerPreview();
     }
 
     public function fieldModalTitle(): void
@@ -132,7 +136,22 @@ final class SettingsPage implements HasHooks
             esc_attr($this->settings->modalTitle()),
             esc_attr__('Size guide', 'sizer'),
         );
-        echo '<p class="description">' . esc_html__('Heading shown at the top of the modal. Defaults to the trigger label.', 'sizer') . '</p>';
+        echo '<p class="description">' . esc_html__(
+            'The title shown at the top of the pop-up once it opens. Leave it blank to reuse the link wording above.',
+            'sizer',
+        ) . '</p>';
+    }
+
+    /**
+     * Tiny inline preview of the storefront trigger so the wording change is
+     * visible without leaving the settings page. Presentation only.
+     */
+    private function renderTriggerPreview(): void
+    {
+        echo '<p class="sizer-preview" aria-hidden="true">';
+        echo '<span class="sizer-preview-label">' . esc_html__('Preview', 'sizer') . '</span>';
+        echo '<span class="sizer-preview-trigger">' . esc_html($this->settings->triggerLabel()) . '</span>';
+        echo '</p>';
     }
 
     /**
@@ -238,8 +257,10 @@ final class SettingsPage implements HasHooks
     private function renderSettingsTab(): void
     {
         echo '<form method="post" action="options.php" class="sizer-settings-form">';
+        echo '<div class="sizer-panel">';
         settings_fields(self::SETTINGS_GRP);
         do_settings_sections(self::PAGE);
+        echo '</div>';
         submit_button();
         echo '</form>';
     }

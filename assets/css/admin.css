@@ -6,6 +6,62 @@
 	margin-bottom: 1.25rem;
 }
 
+/* ---------------------------------------------------------------- Settings tab.
+   Section accent matches the storefront tan (#9c5e0d). Contrast vs the
+   wp-admin surface is computed, not eyeballed:
+     #9c5e0d on #fff     = 5.22:1  (AA text + UI)
+     #9c5e0d on #f0f0f1  = 4.59:1  (AA text + UI)
+   Used here only as a 4px rule (UI, needs 3:1) and on a small uppercase
+   label, both of which clear AA comfortably and don't fight admin schemes. */
+.sizer-panel {
+	max-width: 46rem;
+	margin: 0 0 0.5rem;
+	padding: 0.25rem 1.25rem 1rem;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-inline-start: 4px solid #9c5e0d;
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.sizer-panel h2 {
+	margin-top: 1rem;
+	padding-bottom: 0.4rem;
+	font-size: 1.05rem;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.sizer-section-lead {
+	max-width: 60ch;
+	color: #50575e;
+}
+
+/* Storefront trigger preview — show, don't just toggle. */
+.sizer-preview {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 0.6rem 0 0;
+}
+
+.sizer-preview-label {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #50575e; /* 7.0:1 on #fff — AA */
+}
+
+.sizer-preview-trigger {
+	display: inline-block;
+	padding: 4px 12px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #fff;
+	background: #9c5e0d; /* button-like; 5.22:1 white-on-tan — AA text */
+	border-radius: 6px;
+}
+
 /* Chart builder. */
 .sizer-charts-intro {
 	max-width: 60ch;
@@ -101,6 +157,30 @@
 	.sizer-chart-card {
 		background: #1e1e1e;
 		border-color: #3c434a;
+	}
+
+	/* On the dark admin surface (#1e1e1e) the storefront tan reads too dark,
+	   so the accent shifts to the lighter "tape" tone (#e7a83c):
+	     #e7a83c on #1e1e1e = 7.99:1  (AA UI + text)
+	     #000 on #e7a83c    = 10.06:1 (AA chip text) */
+	.sizer-panel {
+		background: #1e1e1e;
+		border-color: #3c434a;
+		border-inline-start-color: #e7a83c;
+	}
+
+	.sizer-panel h2 {
+		border-bottom-color: #3c434a;
+	}
+
+	.sizer-section-lead,
+	.sizer-preview-label {
+		color: #a7aaad;
+	}
+
+	.sizer-preview-trigger {
+		color: #1a1a1a;
+		background: #e7a83c;
 	}
 
 	.sizer-field span {
