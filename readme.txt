@@ -49,6 +49,14 @@ On the single product page, as a button shown after the add-to-cart button. The 
 
 Yes. Templates can be overridden from your theme under a `sizer/` folder, and the storefront CSS exposes custom properties you can re-theme.
 
+= Is the size-guide modal accessible? =
+
+Yes. It uses a native `<dialog>` with a labelled heading, close button, keyboard support and respects `prefers-reduced-motion`.
+
+= Can one chart apply to many products? =
+
+Yes. Build a chart once under WooCommerce → Size Guides, then assign it on each product's Size guide tab.
+
 == Screenshots ==
 
 1. The size guide modal on a product page.
