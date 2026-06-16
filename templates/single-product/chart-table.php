@@ -39,7 +39,7 @@ endif;
         </thead>
         <tbody>
             <?php foreach ($sizer_rows as $sizer_row) : ?>
-                <tr>
+                <tr tabindex="0">
                     <?php foreach ($sizer_columns as $sizer_c => $sizer_col) : ?>
                         <?php $sizer_cell = is_array($sizer_row) && isset($sizer_row[$sizer_c]) ? (string) $sizer_row[$sizer_c] : ''; ?>
                         <?php if (0 === $sizer_c) : ?>
