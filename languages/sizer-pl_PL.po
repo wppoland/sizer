@@ -4,15 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sizer - Size Guide and Charts for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sizer\n"
+"POT-Creation-Date: 2026-06-16T20:23:05+00:00\n"
+"PO-Revision-Date: 2026-06-15 12:00+0000\n"
 "Last-Translator: WPPoland <kontakt@wppoland.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T21:56:35+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:00+0000\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sizer\n"
 
@@ -28,8 +29,12 @@ msgstr "https://plogins.com/sizer/"
 
 #. Description of the plugin
 #: sizer.php
-msgid "Add size guides and size charts to your WooCommerce products via an accessible modal."
-msgstr "Dodaj przewodniki po rozmiarach i tabele rozmiarów do produktów WooCommerce w dostępnym oknie modalnym."
+msgid ""
+"Add size guides and size charts to your WooCommerce products via an "
+"accessible modal."
+msgstr ""
+"Dodaj przewodniki po rozmiarach i tabele rozmiarów do produktów WooCommerce "
+"w dostępnym oknie modalnym."
 
 #. Author of the plugin
 #: sizer.php
@@ -42,18 +47,19 @@ msgid "https://plogins.com/"
 msgstr "https://plogins.com/"
 
 #: sizer.php:55
-msgid "Sizer - Size Guide and Charts for WooCommerce requires WooCommerce to be active."
-msgstr "Sizer - Przewodnik po rozmiarach i tabele dla WooCommerce wymaga aktywnej wtyczki WooCommerce."
+msgid ""
+"Sizer - Size Guide and Charts for WooCommerce requires WooCommerce to be "
+"active."
+msgstr ""
+"Sizer - Przewodnik po rozmiarach i tabele dla WooCommerce wymaga aktywnej "
+"wtyczki WooCommerce."
 
-#: src/Admin/Assignment.php:42
-#: src/Admin/SettingsPage.php:122
-#: src/Admin/SettingsPage.php:133
-#: src/Service/Settings.php:46
+#: src/Admin/Assignment.php:42 src/Admin/SettingsPage.php:122
+#: src/Admin/SettingsPage.php:137 src/Service/Settings.php:46
 msgid "Size guide"
 msgstr "Przewodnik po rozmiarach"
 
-#: src/Admin/Assignment.php:65
-#: src/Admin/SettingsPage.php:309
+#: src/Admin/Assignment.php:65 src/Admin/SettingsPage.php:330
 #: templates/single-product/chart-table.php:31
 msgid "Size chart"
 msgstr "Tabela rozmiarów"
@@ -63,8 +69,12 @@ msgid "— No chart —"
 msgstr "— Brak tabeli —"
 
 #: src/Admin/Assignment.php:68
-msgid "Choose a chart to show on this product, or leave it blank to hide the size guide here."
-msgstr "Wybierz tabelę do wyświetlenia przy tym produkcie lub pozostaw puste, aby ukryć tutaj przewodnik po rozmiarach."
+msgid ""
+"Choose a chart to show on this product, or leave it blank to hide the size "
+"guide here."
+msgstr ""
+"Wybierz tabelę do wyświetlenia przy tym produkcie lub pozostaw puste, aby "
+"ukryć tutaj przewodnik po rozmiarach."
 
 #: src/Admin/SettingsPage.php:46
 msgid "Sizer — Size Guides"
@@ -78,115 +88,129 @@ msgstr "Przewodniki po rozmiarach"
 msgid "Delete this size chart? This cannot be undone."
 msgstr "Usunąć tę tabelę rozmiarów? Tej operacji nie można cofnąć."
 
-#: src/Admin/SettingsPage.php:78
-#: src/Admin/SettingsPage.php:345
+#: src/Admin/SettingsPage.php:78 src/Admin/SettingsPage.php:366
 msgid "Column heading"
 msgstr "Nagłówek kolumny"
 
-#: src/Admin/SettingsPage.php:79
-#: src/Admin/SettingsPage.php:347
+#: src/Admin/SettingsPage.php:79 src/Admin/SettingsPage.php:368
 msgid "Remove column"
 msgstr "Usuń kolumnę"
 
-#: src/Admin/SettingsPage.php:80
-#: src/Admin/SettingsPage.php:367
+#: src/Admin/SettingsPage.php:80 src/Admin/SettingsPage.php:388
 msgid "Remove row"
 msgstr "Usuń wiersz"
 
-#: src/Admin/SettingsPage.php:81
-#: src/Admin/SettingsPage.php:364
+#: src/Admin/SettingsPage.php:81 src/Admin/SettingsPage.php:385
 msgid "Cell value"
 msgstr "Wartość komórki"
 
 #: src/Admin/SettingsPage.php:102
-msgid "Display"
-msgstr "Wyświetlanie"
+msgid "How the size guide appears"
+msgstr ""
 
 #: src/Admin/SettingsPage.php:104
-msgid "The size guide shows as a button after the add-to-cart button and opens an accessible modal. Assign a chart to a product for it to appear."
-msgstr "Przewodnik po rozmiarach wyświetla się jako przycisk za przyciskiem dodawania do koszyka i otwiera dostępne okno modalne. Przypisz tabelę do produktu, aby się pojawiła."
+msgid ""
+"On any product with a chart assigned, shoppers see a “Size guide” link just "
+"below the add-to-cart button. Selecting it opens an accessible pop-up that "
+"shows the chart. These two settings control the wording shoppers see — leave "
+"them as they are and the guide works out of the box."
+msgstr ""
 
 #: src/Admin/SettingsPage.php:112
-msgid "Trigger label"
-msgstr "Etykieta przycisku"
+msgid "Link wording"
+msgstr ""
 
 #: src/Admin/SettingsPage.php:113
-msgid "Modal title"
-msgstr "Tytuł okna modalnego"
+msgid "Pop-up heading"
+msgstr ""
 
 #: src/Admin/SettingsPage.php:124
-msgid "The text shown on the button."
-msgstr "Tekst wyświetlany na przycisku."
+msgid ""
+"The clickable text shown on the product page that opens the chart. Keep it "
+"short — “Size guide”, “Size chart” or “Find my fit” all read well next to "
+"the price."
+msgstr ""
 
-#: src/Admin/SettingsPage.php:135
-msgid "Heading shown at the top of the modal. Defaults to the trigger label."
-msgstr "Nagłówek wyświetlany u góry okna modalnego. Domyślnie zgodny z etykietą przycisku."
+#: src/Admin/SettingsPage.php:139
+msgid ""
+"The title shown at the top of the pop-up once it opens. Leave it blank to "
+"reuse the link wording above."
+msgstr ""
 
-#: src/Admin/SettingsPage.php:164
+#: src/Admin/SettingsPage.php:152
+msgid "Preview"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:183
 msgid "You are not allowed to manage size charts."
 msgstr "Nie masz uprawnień do zarządzania tabelami rozmiarów."
 
-#: src/Admin/SettingsPage.php:219
+#: src/Admin/SettingsPage.php:238
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/Admin/SettingsPage.php:225
+#: src/Admin/SettingsPage.php:244
 msgid "Size charts"
 msgstr "Tabele rozmiarów"
 
-#: src/Admin/SettingsPage.php:251
+#: src/Admin/SettingsPage.php:272
 msgid "Size charts saved."
 msgstr "Tabele rozmiarów zostały zapisane."
 
-#: src/Admin/SettingsPage.php:260
-msgid "Build reusable charts here, then assign them to a product (Product data → Size guide). Each chart is a simple labelled table."
-msgstr "Twórz tutaj tabele do wielokrotnego użytku, a następnie przypisuj je do produktu (Dane produktu → Przewodnik po rozmiarach). Każda tabela to prosta, opisana tabela."
+#: src/Admin/SettingsPage.php:281
+msgid ""
+"Build reusable charts here, then assign them to a product (Product data → "
+"Size guide). Each chart is a simple labelled table."
+msgstr ""
+"Twórz tutaj tabele do wielokrotnego użytku, a następnie przypisuj je do "
+"produktu (Dane produktu → Przewodnik po rozmiarach). Każda tabela to prosta, "
+"opisana tabela."
 
-#: src/Admin/SettingsPage.php:268
+#: src/Admin/SettingsPage.php:289
 msgid "No size charts yet. Add your first one below."
 msgstr "Nie ma jeszcze żadnych tabel rozmiarów. Dodaj pierwszą poniżej."
 
-#: src/Admin/SettingsPage.php:281
+#: src/Admin/SettingsPage.php:302
 msgid "+ Add size chart"
 msgstr "+ Dodaj tabelę rozmiarów"
 
-#: src/Admin/SettingsPage.php:289
+#: src/Admin/SettingsPage.php:310
 msgid "Save charts"
 msgstr "Zapisz tabele"
 
-#: src/Admin/SettingsPage.php:319
+#: src/Admin/SettingsPage.php:340
 msgid "Chart name"
 msgstr "Nazwa tabeli"
 
-#: src/Admin/SettingsPage.php:322
+#: src/Admin/SettingsPage.php:343
 msgid "e.g. Men's T-Shirts"
 msgstr "np. T-shirty męskie"
 
-#: src/Admin/SettingsPage.php:326
+#: src/Admin/SettingsPage.php:347
 msgid "Caption (optional)"
 msgstr "Podpis (opcjonalnie)"
 
-#: src/Admin/SettingsPage.php:329
+#: src/Admin/SettingsPage.php:350
 msgid "e.g. All measurements in cm"
 msgstr "np. Wszystkie wymiary w cm"
 
-#: src/Admin/SettingsPage.php:331
+#: src/Admin/SettingsPage.php:352
 msgid "Delete chart"
 msgstr "Usuń tabelę"
 
-#: src/Admin/SettingsPage.php:331
+#: src/Admin/SettingsPage.php:352
 msgid "Delete"
 msgstr "Usuń"
 
-#: src/Admin/SettingsPage.php:346
+#: src/Admin/SettingsPage.php:367
 msgid "Size"
 msgstr "Rozmiar"
 
-#: src/Admin/SettingsPage.php:350
+#: src/Admin/SettingsPage.php:371
 msgid "Add column"
 msgstr "Dodaj kolumnę"
 
-#: src/Admin/SettingsPage.php:374
+#: src/Admin/SettingsPage.php:395
 msgid "+ Add row"
 msgstr "+ Dodaj wiersz"
 
@@ -197,3 +221,29 @@ msgstr "Brak dostępnych informacji o rozmiarach."
 #: templates/single-product/dialog.php:36
 msgid "Close size guide"
 msgstr "Zamknij przewodnik po rozmiarach"
+
+#~ msgid "Display"
+#~ msgstr "Wyświetlanie"
+
+#~ msgid ""
+#~ "The size guide shows as a button after the add-to-cart button and opens "
+#~ "an accessible modal. Assign a chart to a product for it to appear."
+#~ msgstr ""
+#~ "Przewodnik po rozmiarach wyświetla się jako przycisk za przyciskiem "
+#~ "dodawania do koszyka i otwiera dostępne okno modalne. Przypisz tabelę do "
+#~ "produktu, aby się pojawiła."
+
+#~ msgid "Trigger label"
+#~ msgstr "Etykieta przycisku"
+
+#~ msgid "Modal title"
+#~ msgstr "Tytuł okna modalnego"
+
+#~ msgid "The text shown on the button."
+#~ msgstr "Tekst wyświetlany na przycisku."
+
+#~ msgid ""
+#~ "Heading shown at the top of the modal. Defaults to the trigger label."
+#~ msgstr ""
+#~ "Nagłówek wyświetlany u góry okna modalnego. Domyślnie zgodny z etykietą "
+#~ "przycisku."
