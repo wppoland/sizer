@@ -102,6 +102,12 @@
 			}
 		});
 		reindexColumns(card);
+		// Restore focus: the removed control is gone, so move to the add-column
+		// button of the same card to keep the keyboard user oriented.
+		var addCol = card.querySelector('.sizer-add-col');
+		if (addCol) {
+			addCol.focus();
+		}
 	}
 
 	function addRow(card) {
@@ -160,6 +166,10 @@
 			var confirmMsg = i18n.confirmDelete || 'Delete this size chart?';
 			if (window.confirm(confirmMsg)) {
 				card.parentNode.removeChild(card);
+				// Restore focus to a stable control after the card is gone.
+				if (addChartBtn) {
+					addChartBtn.focus();
+				}
 			}
 			return;
 		}
@@ -184,6 +194,11 @@
 			if (tr) {
 				tr.parentNode.removeChild(tr);
 				reindexRows(card);
+				// Restore focus to the add-row button of the same card.
+				var addRowBtn = card.querySelector('.sizer-add-row');
+				if (addRowBtn) {
+					addRowBtn.focus();
+				}
 			}
 		}
 	});
