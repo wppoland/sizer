@@ -37,6 +37,15 @@ Source and bug reports live on GitHub: https://github.com/wppoland/sizer
 
 == Frequently Asked Questions ==
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/sizer/docs/
+* **Plugin page** - https://plogins.com/sizer/
+* **Source code** - https://github.com/wppoland/sizer
+* **Bug reports and feature requests** - https://github.com/wppoland/sizer/issues
+* **Discussions and questions** - https://github.com/wppoland/sizer/discussions
+
+
 = Does it require WooCommerce? =
 
 Yes. Sizer extends WooCommerce single product pages.
