@@ -1,5 +1,5 @@
 === Sizer - Size Guide and Charts for WooCommerce ===
-Contributors: wppoland
+Contributors: motylanogha
 Tags: woocommerce, size guide, size chart, product, fashion
 Requires at least: 6.5
 Tested up to: 7.0
