@@ -24,7 +24,46 @@ if (empty($sizer_rows) || empty($sizer_columns)) :
     <?php
     return;
 endif;
+
+/**
+ * Filters unit-switch settings for a rendered size chart.
+ *
+ * @param array{enabled: bool, default: string, storage: string} $sizer_units Unit config.
+ * @param array{id: string, name: string, caption: string, columns: list<string>, rows: list<list<string>>} $sizer_chart Chart data.
+ */
+$sizer_units = apply_filters(
+    'sizer/chart_units',
+    [
+        'enabled' => false,
+        'default' => 'cm',
+        'storage' => 'cm',
+    ],
+    $sizer_chart,
+);
+
+$sizer_units_enabled = ! empty($sizer_units['enabled']);
+$sizer_unit_default  = isset($sizer_units['default']) && in_array($sizer_units['default'], ['cm', 'in'], true)
+    ? (string) $sizer_units['default']
+    : 'cm';
+$sizer_unit_storage  = isset($sizer_units['storage']) && in_array($sizer_units['storage'], ['cm', 'in'], true)
+    ? (string) $sizer_units['storage']
+    : 'cm';
 ?>
+<div
+    class="sizer-chart"
+    data-sizer-units-enabled="<?php echo $sizer_units_enabled ? '1' : '0'; ?>"
+    data-sizer-unit-default="<?php echo esc_attr($sizer_unit_default); ?>"
+    data-sizer-unit-storage="<?php echo esc_attr($sizer_unit_storage); ?>"
+>
+    <?php
+    /**
+     * Fires before the chart table markup. Add-ons may render unit controls here.
+     *
+     * @param array{id: string, name: string, caption: string, columns: list<string>, rows: list<list<string>>} $sizer_chart Chart data.
+     * @param array{enabled: bool, default: string, storage: string} $sizer_units Unit config.
+     */
+    do_action('sizer/chart_controls', $sizer_chart, $sizer_units);
+    ?>
 <div class="sizer-chart__scroll">
     <table class="sizer-chart__table">
         <caption class="screen-reader-text">
@@ -56,3 +95,4 @@ endif;
 <?php if ('' !== $sizer_caption) : ?>
     <p class="sizer-chart__caption"><?php echo esc_html($sizer_caption); ?></p>
 <?php endif; ?>
+</div>

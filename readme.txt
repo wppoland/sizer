@@ -4,7 +4,7 @@ Tags: woocommerce, size guide, size chart, product, fashion
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -76,6 +76,9 @@ Yes. Build a chart once under WooCommerce → Size Guides, then assign it on eac
 Sizer does not connect to any external services. It makes no API calls and loads no remote scripts, fonts, or stylesheets. Your size charts and button/heading settings are stored in your own WordPress database (the `sizer_charts` and `sizer_settings` options), and each product's assigned chart is kept in that product's `_sizer_chart_id` post meta. No data leaves your site, and nothing is tracked.
 
 == Changelog ==
+
+= 0.1.1 =
+* `sizer/chart_units` filter and `sizer/chart_controls` action for PRO unit switching on rendered charts.
 
 = 0.1.0 =
 * Initial release: reusable size charts, per-product assignment, and an accessible modal shown after the add-to-cart button.
