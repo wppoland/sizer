@@ -20,7 +20,7 @@ $sizer_name    = isset($sizer_chart['name']) ? (string) $sizer_chart['name'] : '
 
 if (empty($sizer_rows) || empty($sizer_columns)) :
     ?>
-    <p class="sizer-chart__empty"><?php esc_html_e('No size information is available yet.', 'sizer'); ?></p>
+    <p class="sizer-chart__empty"><?php esc_html_e('No size information is available yet.', 'plogins-sizer'); ?></p>
     <?php
     return;
 endif;
@@ -67,7 +67,7 @@ $sizer_unit_storage  = isset($sizer_units['storage']) && in_array($sizer_units['
 <div class="sizer-chart__scroll">
     <table class="sizer-chart__table">
         <caption class="screen-reader-text">
-            <?php echo '' !== $sizer_name ? esc_html($sizer_name) : esc_html__('Size chart', 'sizer'); ?>
+            <?php echo '' !== $sizer_name ? esc_html($sizer_name) : esc_html__('Size chart', 'plogins-sizer'); ?>
         </caption>
         <thead>
             <tr>

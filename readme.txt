@@ -1,10 +1,10 @@
-=== Sizer - Size Guide and Charts for WooCommerce ===
+=== Plogins Sizer for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, size guide, size chart, product, fashion
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,7 @@ Sizer adds a "Size guide" button to your WooCommerce product pages. Shoppers cli
 
 You build each chart once in the admin (a labelled table of columns and rows, plus an optional caption) and assign it to whichever products it applies to. The button is injected right after the add-to-cart button. If a product has no chart assigned, nothing is added to the page.
 
-Source and bug reports live on GitHub: https://github.com/wppoland/sizer
+Source and bug reports live on GitHub: https://github.com/wppoland/plogins-sizer
 
 **What it does**
 
@@ -30,7 +30,7 @@ Source and bug reports live on GitHub: https://github.com/wppoland/sizer
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/sizer`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/plogins-sizer`, or install via Plugins → Add New.
 2. Activate it. WooCommerce must be active.
 3. Go to WooCommerce → Size Guides to create a chart and set the button label.
 4. Assign a chart on a product (Product data → Size guide).
@@ -39,11 +39,10 @@ Source and bug reports live on GitHub: https://github.com/wppoland/sizer
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/sizer/docs/
-* **Plugin page** - https://plogins.com/sizer/
-* **Source code** - https://github.com/wppoland/sizer
-* **Bug reports and feature requests** - https://github.com/wppoland/sizer/issues
-* **Discussions and questions** - https://github.com/wppoland/sizer/discussions
+* **Documentation** - https://plogins.com/plogins-sizer/docs/
+* **Plugin page** - https://plogins.com/plogins-sizer/
+* **Source code** - https://github.com/wppoland/plogins-sizer
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-sizer/issues
 
 
 = Does it require WooCommerce? =
@@ -76,6 +75,9 @@ Yes. Build a chart once under WooCommerce → Size Guides, then assign it on eac
 Sizer does not connect to any external services. It makes no API calls and loads no remote scripts, fonts, or stylesheets. Your size charts and button/heading settings are stored in your own WordPress database (the `sizer_charts` and `sizer_settings` options), and each product's assigned chart is kept in that product's `_sizer_chart_id` post meta. No data leaves your site, and nothing is tracked.
 
 == Changelog ==
+
+= 0.1.3 =
+* Renamed to Plogins Sizer for WooCommerce for a more distinctive plugin name.
 
 = 0.1.2 =
 * `sizer/match_size` filter and `SizeMatcher` service for matching shopper measurements to chart rows.

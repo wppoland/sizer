@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Sizer - Size Guide and Charts for WooCommerce
- * Plugin URI:        https://plogins.com/sizer/
+ * Plugin Name:       Plogins Sizer for WooCommerce
+ * Plugin URI:        https://plogins.com/plogins-sizer/
  * Description:        Add size guides and size charts to your WooCommerce products via an accessible modal.
- * Version:           0.1.2
+ * Version:           0.1.3
  * Requires at least: 6.5
  * Tested up to:      7.0
  * Requires PHP:      8.1
@@ -12,7 +12,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       sizer
+ * Text Domain:       plogins-sizer
  * Domain Path:       /languages
  * WC requires at least: 8.0
  *
@@ -25,7 +25,7 @@ namespace Sizer;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.2';
+const VERSION     = '0.1.3';
 const PLUGIN_FILE = __FILE__;
 const PLUGIN_DIR  = __DIR__;
 
@@ -52,7 +52,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Sizer - Size Guide and Charts for WooCommerce requires WooCommerce to be active.', 'sizer');
+            echo esc_html__('Sizer - Size Guide and Charts for WooCommerce requires WooCommerce to be active.', 'plogins-sizer');
             echo '</p></div>';
         });
         return;

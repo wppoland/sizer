@@ -33,7 +33,7 @@ $sizer_heading_id = $sizer_dialog_id . '-title';
             <h2 id="<?php echo esc_attr($sizer_heading_id); ?>" class="sizer-dialog__title">
                 <?php echo esc_html($sizer_title); ?>
             </h2>
-            <button type="button" class="sizer-dialog__close" data-sizer-close aria-label="<?php esc_attr_e('Close size guide', 'sizer'); ?>">
+            <button type="button" class="sizer-dialog__close" data-sizer-close aria-label="<?php esc_attr_e('Close size guide', 'plogins-sizer'); ?>">
                 <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
                 </svg>

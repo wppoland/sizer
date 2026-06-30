@@ -43,7 +43,7 @@ final class Settings
     {
         $label = trim((string) ($this->all()['trigger_label'] ?? ''));
 
-        return '' !== $label ? $label : __('Size guide', 'sizer');
+        return '' !== $label ? $label : __('Size guide', 'plogins-sizer');
     }
 
     public function modalTitle(): string
