@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Plogins Sizer for WooCommerce
+ * Plugin Name:       Plogins Sizer - Size Guide for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-sizer/
  * Description:        Add size guides and size charts to your WooCommerce products via an accessible modal.
  * Version:           0.1.3
