@@ -65,6 +65,11 @@ Yes. It uses a native `<dialog>` with a labelled heading, close button, keyboard
 
 Yes. Build a chart once under WooCommerce → Size Guides, then assign it on each product's Size guide tab.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. The size guide modal on a product page.
